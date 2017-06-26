@@ -8,7 +8,7 @@
 	<h2>Combien de mots contient ce dictionnaire ?</h2>
 	<?php 
 
-		$string = file_get_contents("fr-classique.dic", FILE_USE_INCLUDE_PATH);
+		$string = file_get_contents("dictionnaire.txt", FILE_USE_INCLUDE_PATH);
 		$dico = explode("\n", $string);
 
 		$result = count($dico);
@@ -23,19 +23,36 @@
 				array_push($string_15, $recup);
 			}
 		}
-		echo count($string_15)." mots font exactement 15 caracteres <br>";
+	echo count($string_15)." mots font exactement 15 caracteres <br>";
 	?>
+
+
 	<h2>Combien de mots contiennent la lettre « w » ?</h2>
 	<?php
 		$string_w = array();
-			foreach ($dico as $stock) {
-				if (strpos($stock, "w") !== false) {
-					array_push($string_w, $stock);
-				}
+		foreach ($dico as $stock) {
+			if (strpos($stock, "w") !== false) {
+				array_push($string_w, $stock);
 			}
-			echo count($string_w)." mots contiennent un w";
+		}
+	echo count($string_w)." mots contiennent un w";
 	?>
+
+
 	<h2>Combien de mots finissent par la lettre « q » ?</h2>
+	<?php
+
+		$string_q = array();
+		foreach ($dico as $contenu) {
+			if (substr($contenu, -1) == "q") {
+				array_push($string_q, $contenu);
+			}
+		}
+	echo count($string_q);
+
+
+
+	?>
 </body>
 </html>
 
